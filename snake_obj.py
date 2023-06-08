@@ -4,6 +4,7 @@ class Snake:
         self.head_orientaion = 0
         self.coordinates = [(),(),()]
         self.color = "Black"
+        self.shalom= "shlomy"
 
 
 
