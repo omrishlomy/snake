@@ -1,4 +1,3 @@
-import argparse
 import game_utils
 from snake_game import SnakeGame
 from game_display import GameDisplay
@@ -6,8 +5,9 @@ from game_display import GameDisplay
 def main_loop(gd: GameDisplay, args: argparse.Namespace) -> None:
 
     # INIT OBJECTS
-    game = SnakeGame()
+    game = SnakeGame(args)
     gd.show_score(0)
+    round_num = 0
     # DRAW BOARD
     game.draw_board(gd)
     # END OF ROUND 0
@@ -19,12 +19,13 @@ def main_loop(gd: GameDisplay, args: argparse.Namespace) -> None:
         if game.check_in_board(gd):
             continue
         # UPDATE OBJECTS
-        game.update_objects()
+        game.update_objects(round_num)
         if game.eat_snake():
             return
         # DRAW BOARD
         game.draw_board(gd)
         # WAIT FOR NEXT ROUND:
+        round_num +=1
         game.end_round()
         gd.end_round()
 
