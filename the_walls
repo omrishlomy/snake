@@ -1,3 +1,5 @@
+
+
 class Wall:
     def __init__(self, direction,center_coordinates, length=3):
         self.length = length
@@ -20,16 +22,25 @@ class Wall:
         if self.direction == "Left":
             self.center = self.center[0]-1, self.center[1]
             self.coordinates = self.wall_coordinates()
+            return self.coordinates[-1]
 
         elif self.direction == "Right":
             self.center = self.center[0] + 1, self.center[1]
             self.coordinates = self.wall_coordinates()
+            return self.coordinates[-1]
 
         elif self.direction == "Up":
             self.center = self.center[0], self.center[1] + 1
             self.coordinates = self.wall_coordinates()
+            return self.coordinates[-1]
 
         elif self.direction == "Down":
             self.center = self.center[0], self.center[1] - 1
             self.coordinates = self.wall_coordinates()
+            return self.coordinates[-1]
+
+
+
+
+
 
